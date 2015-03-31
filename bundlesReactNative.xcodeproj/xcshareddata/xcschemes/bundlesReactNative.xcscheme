@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "Bundle.app"
-               BlueprintName = "Bundle"
-               ReferencedContainer = "container:Bundle.xcodeproj">
+               BuildableName = "bundlesReactNative.app"
+               BlueprintName = "bundlesReactNative"
+               ReferencedContainer = "container:bundlesReactNative.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Bundle.app"
-            BlueprintName = "Bundle"
-            ReferencedContainer = "container:Bundle.xcodeproj">
+            BuildableName = "bundlesReactNative.app"
+            BlueprintName = "bundlesReactNative"
+            ReferencedContainer = "container:bundlesReactNative.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Bundle.app"
-            BlueprintName = "Bundle"
-            ReferencedContainer = "container:Bundle.xcodeproj">
+            BuildableName = "bundlesReactNative.app"
+            BlueprintName = "bundlesReactNative"
+            ReferencedContainer = "container:bundlesReactNative.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Bundle.app"
-            BlueprintName = "Bundle"
-            ReferencedContainer = "container:Bundle.xcodeproj">
+            BuildableName = "bundlesReactNative.app"
+            BlueprintName = "bundlesReactNative"
+            ReferencedContainer = "container:bundlesReactNative.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Bundle.xcodeproj">
+      location = "self:bundlesReactNative.xcodeproj">
    </FileRef>
 </Workspace>
