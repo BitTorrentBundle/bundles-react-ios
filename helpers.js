@@ -1,10 +1,9 @@
 'use strict';
 
+var S = require('string');
+
 var IMG_PREFIX = 'https://d2eri39gz1mfk5.cloudfront.net/bittorrent/image/upload/';
-
 var DEFAULT_QUALITY = 70;
-
-// f_jpg,w_120,q_70/content-bundles/
 
 
 var helpers = {
@@ -29,6 +28,10 @@ var helpers = {
         }
 
         return { uri };
+    },
+
+    cleanString: function (description: string): string {
+        return S(description).stripTags().decodeHTMLEntities().s;
     }
 };
 

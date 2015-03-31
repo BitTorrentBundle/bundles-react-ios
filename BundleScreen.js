@@ -34,7 +34,7 @@ var BundleScreen = React.createClass({
                 </View>
                 <View style={styles.separator} />
                 <View>
-                    <Text>{this.props.bundle.description}</Text>
+                    <Text>{helpers.cleanString(this.props.bundle.description)}</Text>
                 </View>
                 <View style={styles.separator} />
                 <Gates torrents={this.props.bundle.torrents} />
@@ -49,19 +49,8 @@ var Gates = React.createClass({
             <View>
                 {this.props.torrents.map((torrent) =>
                     <Text style={styles.bundleFilesTitle}>Gate: {torrent.gateType}</Text>
-                    <Files files={torrent.files} />
                 )}
             </View>
-        );
-    }
-});
-
-var Files = React.createClass({
-    render: function () {
-        return (
-            {this.props.files.map(file =>
-                <Text>{file.fileName}</Text>
-            )}
         );
     }
 });
