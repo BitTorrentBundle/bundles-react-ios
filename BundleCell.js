@@ -32,6 +32,7 @@ var BundleCell = React.createClass({
                             <Text style={styles.bundleTitle} numberOfLines={2}>
                                 {this.props.bundle.title}
                             </Text>
+                            <Text>{this.props.bundle.author}</Text>
                         </View>
                     </View>
                 </TouchableHighlight>

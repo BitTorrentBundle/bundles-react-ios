@@ -258,17 +258,17 @@ var MainScreen = React.createClass({
 
         return (
             <View style={styles.container}>
+                <SearchBar
+                    onSearchChange={this.onSearchChange}
+                    isLoading={this.state.isLoading}
+                    onFocus={() => this.refs.listview.getScrollResponder().scrollTo(0,0)}
+                />
+                <View style={styles.seperator} />
                 {content}
             </View>
         );
     }
 });
-                // <SearchBar
-                //     onSearchChange={this.onSearchChange}
-                //     isLoading={this.state.isLoading}
-                //     onFocus={() => this.refs.listview.getScrollResponder().scrollTo(0,0)}
-                // />
-                // <View style={styles.seperator} />
 
 var NoBundles = React.createClass({
     render: function () {
