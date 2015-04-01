@@ -26,7 +26,6 @@ var BundleScreen = React.createClass({
                         '1400',
                         'background'
                     )}
-                    style={styles.bgImage}
                 >
                     <View style={styles.splashPane}>
                         <Image

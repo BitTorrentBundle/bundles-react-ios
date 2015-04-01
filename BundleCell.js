@@ -18,23 +18,32 @@ var BundleCell = React.createClass({
         return (
             <View>
                 <TouchableHighlight onPress={this.props.onSelect}>
-                    <View style={styles.row}>
-                        <Image
-                            source={helpers.getImageSource(
-                                this.props.bundle,
-                                'jpg',
-                                '120',
-                                'cover'
-                            )}
-                            style={styles.cellImage}
-                        />
-                        <View style={styles.textContainer}>
-                            <Text style={styles.bundleTitle} numberOfLines={2}>
-                                {this.props.bundle.title}
-                            </Text>
-                            <Text>{this.props.bundle.author}</Text>
+                    <Image
+                        source={helpers.getImageSource(
+                            this.props.bundle,
+                            'jpg',
+                            '1024',
+                            'background'
+                        )}
+                    >
+                        <View style={styles.row}>
+                            <Image
+                                source={helpers.getImageSource(
+                                    this.props.bundle,
+                                    'jpg',
+                                    '300',
+                                    'cover'
+                                )}
+                                style={styles.cellImage}
+                            />
+                            <View style={styles.textContainer}>
+                                <Text style={[styles.cellText,styles.bundleTitle]} numberOfLines={2}>
+                                    {this.props.bundle.title}
+                                </Text>
+                                <Text style={[styles.cellText,styles.bundleAuthor]}>{this.props.bundle.author}</Text>
+                            </View>
                         </View>
-                    </View>
+                    </Image>
                 </TouchableHighlight>
                 <View style={styles.cellBorder} />
             </View>
@@ -44,13 +53,23 @@ var BundleCell = React.createClass({
 
 var styles = StyleSheet.create({
     textContainer: {
-        flex: 1
+        flex: 1,
+        alignSelf: 'flex-start',
+        paddingTop: 10
+    },
+    cellText: {
+        color: 'white',
+        fontFamily: 'Helvetica Neue'
     },
     bundleTitle: {
         flex: 1,
         fontSize: 16,
-        fontWeight: '500',
+        fontWeight: '300',
         marginBottom: 2
+    },
+    bundleAuthor: {
+        fontWeight: '500',
+        fontSize: 10
     },
     bundleDownloads: {
         color: '#999999',
@@ -58,15 +77,15 @@ var styles = StyleSheet.create({
     },
     row: {
         alignItems: 'center',
-        backgroundColor: 'white',
-        flexDirection: 'row',
-        padding: 5
+        backgroundColor: 'rgba(55, 55, 55, .7)',
+        flexDirection: 'row'
     },
     cellImage: {
         backgroundColor: '#dddddd',
-        height: 93,
+        height: 80,
         marginRight: 10,
-        width: 60
+        width: 80,
+        resizeMode: Image.resizeMode.cover
     },
     cellBorder: {
         backgroundColor: 'rgba(0, 0, 0, 0.1)',
