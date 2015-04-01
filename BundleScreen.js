@@ -47,34 +47,35 @@ var BundleScreen = React.createClass({
                 <View style={styles.descriptionContainer}>
                     <Text>{description}</Text>
                 </View>
+                <View>
+                    {this.props.bundle.torrents.map(torrent =>
+                        <Gate torrent={torrent} />
+                    )}
+                </View>
             </ScrollView>
         );
     }
 });
 
-var Gates = React.createClass({
+var Gate = React.createClass({
     render: function () {
-        return this.props.torrents.map((torrent) => this.renderGate(torrent));
-    },
-    renderGate: function(torrent: object): ReactElement {
         return (
             <View style={styles.gate}>
-                <Text>Gate: {torrent.gateType}</Text>
+                <Text>Gate: {this.props.torrent.gateType}</Text>
                 <View style={styles.seperator} />
-                <Files files={torrent.files} />
+                {this.props.torrent.files.map(file =>
+                    <File file={file} />
+                )}
             </View>
         );
     }
 });
 
-var Files = React.createClass({
+var File = React.createClass({
     render: function () {
-        return this.props.files.map((file) => this.renderFile(file));
-    },
-    renderFile: function(torrent: object): ReactElement {
         return (
             <View style={styles.file}>
-                <Text>Gate: {file.fileName}</Text>
+                <Text style={styles.filename}>{this.props.file.filename}</Text>
             </View>
         );
     }
@@ -125,6 +126,20 @@ var styles = StyleSheet.create({
         borderTopWidth: 2,
         borderBottomWidth: 2,
         paddingHorizontal: 10
+    },
+    file: {
+        borderColor: 'rgba(0, 0, 0, .2)',
+        borderBottomWidth: 1,
+        marginHorizontal: 5
+    },
+    fileLast: {
+        borderBottomWidth: 0
+    },
+    filename: {
+        fontFamily: 'Helvetica Neue',
+        fontSize: 13,
+        fontWeight: '200',
+        textAlign: 'center'
     }
 });
 
