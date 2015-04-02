@@ -14,17 +14,20 @@ var helpers = {
             uri = IMG_PREFIX +
                   'f_' + format +
                   ',w_' + size +
-                  ',q_' + DEFAULT_QUALITY +
-                  '/content-bundles/';
+                  ',q_' + DEFAULT_QUALITY;
 
+            var img;
             switch (kind) {
                 case 'background':
-                    uri += bundle.background;
+                    img = bundle.background;
                 break;
                 case 'cover':
-                    uri += bundle.cover;
+                    uri += ',c_limit';
+                    img = bundle.cover;
                 break;
             }
+
+            uri += '/content-bundles/' + img;
         }
 
         return { uri };

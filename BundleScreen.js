@@ -13,6 +13,12 @@ var {
 
 var helpers = require('./helpers');
 
+var GATE_TEXT = {
+    'N': 'FREE',
+    'E': 'SUBSCRIBE',
+    'P': 'PAY'
+};
+
 var BundleScreen = React.createClass({
     render: function () {
         var description = helpers.cleanString(this.props.bundle.description);
@@ -44,7 +50,7 @@ var BundleScreen = React.createClass({
                     </View>
                 </Image>
                 <View style={styles.descriptionContainer}>
-                    <Text>{description}</Text>
+                    <Text style={styles.description}>{description}</Text>
                 </View>
                 <View>
                     {this.props.bundle.torrents.map(torrent =>
@@ -60,7 +66,7 @@ var Gate = React.createClass({
     render: function () {
         return (
             <View style={styles.gate}>
-                <Text>Gate: {this.props.torrent.gateType}</Text>
+                <Text style={styles.gateTitle}>{GATE_TEXT[this.props.torrent.gateType]}</Text>
                 <View style={styles.seperator} />
                 {this.props.torrent.files.map(file =>
                     <File file={file} />
@@ -109,7 +115,7 @@ var styles = StyleSheet.create({
     },
     splashFont: {
         color: 'white',
-        fontFamily: 'Helvetica Neue',
+        fontFamily: 'Open Sans',
         fontWeight: '500'
     },
     separator: {
@@ -120,22 +126,21 @@ var styles = StyleSheet.create({
     descriptionContainer: {
         padding: 10
     },
+    description: {
+        fontSize: 12
+    },
     gate: {
-        borderColor: 'rgba(0, 0, 0, .2)',
-        borderTopWidth: 2,
-        borderBottomWidth: 2,
-        paddingHorizontal: 10
+        padding: 10
+    },
+    gateTitle: {
+        textAlign: 'center',
+        fontSize: 18
     },
     file: {
-        borderColor: 'rgba(0, 0, 0, .2)',
-        borderBottomWidth: 1,
         marginHorizontal: 5
     },
-    fileLast: {
-        borderBottomWidth: 0
-    },
     filename: {
-        fontFamily: 'Helvetica Neue',
+        fontFamily: 'Open Sans',
         fontSize: 13,
         fontWeight: '200',
         textAlign: 'center'

@@ -31,7 +31,7 @@ var BundleCell = React.createClass({
                                 source={helpers.getImageSource(
                                     this.props.bundle,
                                     'jpg',
-                                    '300',
+                                    '200',
                                     'cover'
                                 )}
                                 style={styles.cellImage}
@@ -42,6 +42,7 @@ var BundleCell = React.createClass({
                                 </Text>
                                 <Text style={[styles.cellText,styles.bundleAuthor]}>{this.props.bundle.author}</Text>
                             </View>
+                            <Text style={[styles.cellText,styles.bundleDownloads]}>{this.props.bundle.stats.download} Downloads</Text>
                         </View>
                     </Image>
                 </TouchableHighlight>
@@ -54,15 +55,14 @@ var BundleCell = React.createClass({
 var styles = StyleSheet.create({
     textContainer: {
         flex: 1,
-        alignSelf: 'flex-start',
-        paddingTop: 10
+        alignSelf: 'flex-end',
+        paddingBottom: 10
     },
     cellText: {
         color: 'white',
-        fontFamily: 'Helvetica Neue'
+        fontFamily: 'Open Sans'
     },
     bundleTitle: {
-        flex: 1,
         fontSize: 16,
         fontWeight: '300',
         marginBottom: 2
@@ -72,8 +72,11 @@ var styles = StyleSheet.create({
         fontSize: 10
     },
     bundleDownloads: {
-        color: '#999999',
-        fontSize: 12
+        position: 'absolute',
+        top: 0,
+        right: 5,
+        fontSize: 8,
+        margin: 5
     },
     row: {
         alignItems: 'center',
@@ -82,10 +85,10 @@ var styles = StyleSheet.create({
     },
     cellImage: {
         backgroundColor: '#dddddd',
-        height: 80,
+        height: 100,
         marginRight: 10,
-        width: 80,
-        resizeMode: Image.resizeMode.cover
+        width: 100,
+        resizeMode: Image.resizeMode.contain
     },
     cellBorder: {
         backgroundColor: 'rgba(0, 0, 0, 0.1)',
