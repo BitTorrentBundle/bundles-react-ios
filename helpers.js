@@ -19,11 +19,15 @@ var helpers = {
             var img;
             switch (kind) {
                 case 'background':
-                    img = bundle.background;
+                    img = S(bundle.background)
+                              .escapeHTML()
+                              .replaceAll(' ', '%20').s;
                 break;
                 case 'cover':
-                    uri += ',c_limit';
-                    img = bundle.cover;
+                    uri += ',c_fill';
+                    img = S(bundle.cover)
+                              .escapeHTML()
+                              .replaceAll(' ', '%20').s;
                 break;
             }
 

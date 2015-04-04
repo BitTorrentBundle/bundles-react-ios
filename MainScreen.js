@@ -16,7 +16,7 @@ var BundleScreen = require('./BundleScreen');
 
 var fetch = require('fetch');
 
-var DEFAULT_COUNT = 30;
+var DEFAULT_COUNT = 10;
 var DEFAULT_WHERE_PARAMS = encodeURIComponent('{"weight":{"$ne": 100,"$gte": 20}}');
 
 var API_CONSTS = {
@@ -148,12 +148,8 @@ var MainScreen = React.createClass({
 
     onEndReached: function () {
         var query = this.state.filter;
-        if (!this.hasMore() || this.state.isLoadingTail) {
+        if (this.hasMore() || this.state.isLoadingTail || LOADING[query]) {
             return; // We're already fetching or have all the elements so noop
-        }
-
-        if (LOADING[query]) {
-            return;
         }
 
         LOADING[query] = true;
@@ -186,6 +182,7 @@ var MainScreen = React.createClass({
                         bundlesForQuery.push(responseData[i])
                     }
                     resultsCache.dataForQuery[query] = bundlesForQuery;
+                    resultsCache.totalForQuery[query] = bundlesForQuery.length;
                     resultsCache.nextPageNumberForQuery[query] += 1;
                 }
 
@@ -194,7 +191,7 @@ var MainScreen = React.createClass({
                 }
 
                 this.setState({
-                    isLoading: false,
+                    isLoadingTail: false,
                     dataSource: this.getDataSource(resultsCache.dataForQuery[query])
                 });
             }

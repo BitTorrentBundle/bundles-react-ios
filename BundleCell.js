@@ -88,7 +88,7 @@ var styles = StyleSheet.create({
         height: 100,
         marginRight: 10,
         width: 100,
-        resizeMode: Image.resizeMode.contain
+        resizeMode: Image.resizeMode.cover
     },
     cellBorder: {
         backgroundColor: 'rgba(0, 0, 0, 0.1)',

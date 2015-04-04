@@ -7,11 +7,13 @@ var {
   ScrollView,
   ListView,
   StyleSheet,
+  TouchableOpacity,
   Text,
   View,
 } = React;
 
 var helpers = require('./helpers');
+var TagScreen = require('./TagScreen');
 
 var GATE_TEXT = {
     'N': 'FREE',
@@ -49,15 +51,28 @@ var BundleScreen = React.createClass({
                         </View>
                     </View>
                 </Image>
+                <Tags tags={this.props.bundle.tags} />
                 <View style={styles.descriptionContainer}>
                     <Text style={styles.description}>{description}</Text>
                 </View>
-                <View>
-                    {this.props.bundle.torrents.map(torrent =>
-                        <Gate torrent={torrent} />
-                    )}
-                </View>
+                {this.props.bundle.torrents.map(torrent =>
+                    <Gate torrent={torrent} />
+                )}
             </ScrollView>
+        );
+    }
+});
+
+var Tags = React.createClass({
+    render: function () {
+        return (
+            <View style={styles.tagContainer}>
+                {this.props.tags.map(tag =>
+                    <TouchableOpacity>
+                        <Text style={styles.tag}>{tag}</Text>
+                    </TouchableOpacity>
+                )}
+            </View>
         );
     }
 });
@@ -122,6 +137,23 @@ var styles = StyleSheet.create({
         backgroundColor: 'rgba(0, 0, 0, 0.1)',
         height: 1 / PixelRatio.get(),
         marginVertical: 10
+    },
+    tagContainer: {
+        justifyContent: 'center',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        padding: 10
+    },
+    tag: {
+        fontFamily: 'Open Sans',
+        fontWeight: '400',
+        borderColor: '#3399ff',
+        color: '#3399ff',
+        borderWidth: 1,
+        borderRadius: 10,
+        margin: 3,
+        paddingHorizontal: 5,
+        textAlign: 'center'
     },
     descriptionContainer: {
         padding: 10
